@@ -4,7 +4,6 @@ export default function Layout(props) {
 			{props.children}
 			<style jsx>{`
 				.container {
-					// background-color: aqua;
 					width: 100%;
 					min-height: 100vh;
 					${props.style ? props.style : ""}

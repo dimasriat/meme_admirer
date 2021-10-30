@@ -1,53 +1,33 @@
 import Head from "next/head";
+import Link from "next/link";
 import Image from "next/image";
 import Layout from "../components/Layout";
 import { useState } from "react";
 import memes from "../data/memes.json";
+import Button from "../components/Button";
 
-function Button(props) {
-	return (
-		<button onClick={props.onClick}>
-			{props.children}
-			<style jsx>{`
-				button {
-					font-size: 1rem;
-					background-color: ${props.bgColor};
-					color: ${props.textColor};
-					padding: 1.5rem;
-					font-weight: bold;
-					border-radius: 1rem;
-					border: none;
-					width: 100%;
-					margin: 0.5rem 0;
-					cursor: pointer;
-				}
-			`}</style>
-		</button>
-	);
+function getShuffledIndexes(not_me_array) {
+	const array = [...Array(not_me_array.length).keys()];
+	let currentIndex = array.length,
+		randomIndex;
+
+	// While there remain elements to shuffle...
+	while (currentIndex != 0) {
+		// Pick a remaining element...
+		randomIndex = Math.floor(Math.random() * currentIndex);
+		currentIndex--;
+
+		// And swap it with the current element.
+		[array[currentIndex], array[randomIndex]] = [
+			array[randomIndex],
+			array[currentIndex],
+		];
+	}
+
+	return array;
 }
 
 export default function Home() {
-	function getShuffledIndexes(not_me_array) {
-		const array = [...Array(not_me_array.length).keys()];
-		let currentIndex = array.length,
-			randomIndex;
-
-		// While there remain elements to shuffle...
-		while (currentIndex != 0) {
-			// Pick a remaining element...
-			randomIndex = Math.floor(Math.random() * currentIndex);
-			currentIndex--;
-
-			// And swap it with the current element.
-			[array[currentIndex], array[randomIndex]] = [
-				array[randomIndex],
-				array[currentIndex],
-			];
-		}
-
-		return array;
-	}
-
 	const [index, setIndex] = useState(memes.length - 2);
 	const [order, setOrder] = useState(getShuffledIndexes(memes));
 
@@ -74,22 +54,23 @@ export default function Home() {
 					>
 						Cari! 👀
 					</Button>
-					<Button
-						bgColor="white"
-						textColor="#0B1ECC"
-					>
+					<Button bgColor="white" textColor="#0B1ECC">
 						Konteks? 🤔
 					</Button>
 				</div>
 				<div className="col donate">
 					<p>lorem ipsum sir dolor amet</p>
-					<Button
-						onClick={() => setIndex((i) => i + 1)}
-						textColor="white"
-						bgColor="#CC0B7F"
-					>
-						Donasi ❤
-					</Button>
+					<Link href="/donasi">
+						<a>
+							<Button
+								onClick={() => setIndex((i) => i + 1)}
+								textColor="white"
+								bgColor="#CC0B7F"
+							>
+								Donasi ❤
+							</Button>
+						</a>
+					</Link>
 				</div>
 			</div>
 			<style jsx>{`
@@ -114,7 +95,7 @@ export default function Home() {
 					height: 100%;
 					width: 100%;
 				}
-				
+
 				.col.donate {
 					display: flex;
 					flex-direction: column;
