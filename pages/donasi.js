@@ -16,16 +16,13 @@ export default function Donasi() {
 					/>
 				</div>
 				<p>
-					Biar aku bisa terus ngurus websitenya dan bisa update terus
-					🥺❤
+					Biar bisa terus ngurus websitenya dan bisa update terus	❤
 				</p>
-				<Link href="https://saweria.co/memeadmirer">
-					<a>
-						<Button textColor="white" bgColor="#CC0B7F">
-							Donasi lewat Saweria
-						</Button>
-					</a>
-				</Link>
+				<a href="https://saweria.co/memeadmirer" target="_blank">
+					<Button textColor="white" bgColor="#CC0B7F">
+						Donasi lewat Saweria
+					</Button>
+				</a>
 				<Link href="/">
 					<a>
 						<Button bgColor="white" textColor="#0B1ECC">
