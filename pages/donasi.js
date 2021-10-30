@@ -18,7 +18,7 @@ export default function Donasi() {
 				<p>
 					Biar bisa terus ngurus websitenya dan bisa update terus	❤
 				</p>
-				<a href="https://saweria.co/memeadmirer" target="_blank">
+				<a href="https://saweria.co/memeadmirer" target="_blank" rel="noopener noreferrer">
 					<Button textColor="white" bgColor="#CC0B7F">
 						Donasi lewat Saweria
 					</Button>
