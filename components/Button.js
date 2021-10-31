@@ -1,21 +1,19 @@
 export default function Button(props) {
 	return (
-		<button onClick={props.onClick}>
+		<button
+			onClick={props.onClick}
+			className={
+				"text-lg p-4 font-bold rounded-xl w-full cursor-pointer" +
+				(props.className ? " " + props.className : "")
+			}
+		>
 			{props.children}
-			<style jsx>{`
+			{/* <style jsx>{`
 				button {
-					font-size: 1rem;
 					background-color: ${props.bgColor};
 					color: ${props.textColor};
-					padding: 1.5rem;
-					font-weight: bold;
-					border-radius: 1rem;
-					border: none;
-					width: 100%;
-					margin: 0.5rem 0;
-					cursor: pointer;
 				}
-			`}</style>
+			`}</style> */}
 		</button>
 	);
 }

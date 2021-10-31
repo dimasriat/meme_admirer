@@ -27,6 +27,96 @@ function getShuffledIndexes(not_me_array) {
 	return array;
 }
 
+function SideBar(props) {
+	const { memes, order, index, handleCari, loading, started } = props;
+	return (
+		<>
+			<div className="hidden w-1/3 lg:flex flex-col h-screen  bg-gray-800 py-4">
+				<div className="h-full px-2 w-full">
+					<div className="w-full h-24 relative">
+						<Image
+							src="/img/memefess.jpg"
+							layout="fill"
+							objectFit="contain"
+							alt="memefess"
+						/>
+					</div>
+					<Link href="/">
+						<a className="text-4xl font-bold w-full flex flex-wrap mt-4">
+							<span className="text-white">Memefess</span>
+							<span className="text-pink-700">Stalker</span>
+						</a>
+					</Link>
+				</div>
+				<div className="h-full px-2">
+					<Button
+						onClick={handleCari}
+						className="mb-4 bg-blue-700 text-white"
+					>
+						{loading || !started ? "loading..." : "Cari! 👀"}
+					</Button>
+					{started && !loading && (
+						<a
+							target="_blank"
+							href={
+								"https://twitter.com/memefess/status/" +
+								memes[order[index]].id
+							}
+							rel="noopener noreferrer"
+						>
+							<Button className="bg-white text-blue-700">
+								Konteks? 🤔
+							</Button>
+						</a>
+					)}
+				</div>
+				<div className="h-full flex items-end px-2">
+					<Link href="/donasi">
+						<a className="w-full">
+							<Button className="mb-4 bg-pink-700 text-white">
+								Donasi ❤
+							</Button>
+						</a>
+					</Link>
+				</div>
+			</div>
+			<div className="z-40 flex w-full lg:hidden bg-gray-800 py-4">
+				<div className="w-full px-4">
+					<div class={`grid grid-cols-${!loading ? "2" : "1"} gap-4`}>
+						<Button
+							onClick={handleCari}
+							className="mb-4 bg-blue-700 text-white"
+						>
+							{loading || !started ? "loading..." : "Cari! 👀"}
+						</Button>
+						{started && !loading && (
+							<a
+								target="_blank"
+								href={
+									"https://twitter.com/memefess/status/" +
+									memes[order[index]].id
+								}
+								rel="noopener noreferrer"
+							>
+								<Button className="bg-white text-blue-700">
+									Konteks? 🤔
+								</Button>
+							</a>
+						)}
+					</div>
+					<Link href="/donasi">
+						<a className="w-full">
+							<Button className="bg-pink-700 text-white">
+								Donasi ❤
+							</Button>
+						</a>
+					</Link>
+				</div>
+			</div>
+		</>
+	);
+}
+
 export default function Explore() {
 	const [started, setStarted] = useState(false);
 	const [index, setIndex] = useState(0);
@@ -41,115 +131,40 @@ export default function Explore() {
 		setOrder(getShuffledIndexes(memes));
 		setStarted(true);
 	}, []);
+	useEffect(() => {
+		if (!loading) {
+			document.getElementById("memes").scrollTop = 0;
+		}
+	}, [loading]);
 	return (
-		<Layout style="display: flex;">
+		<Layout className="flex flex-col lg:flex-row h-screen">
 			<Head>
 				<title>Explore memes</title>
 				<link rel="icon" type="image/jpg" href="/img/memefess.jpg" />
 			</Head>
-			<div className="left">
-				{started ? (
-					<div className="img-container">
-						<Image
-							src={memes[order[index]].img_url}
-							layout="fill"
-							objectFit="contain"
-							onLoadingComplete={() => setLoading(false)}
-						/>
-					</div>
-				) : (
-					<p>loading</p>
-				)}
+			<div
+				className="w-full h-full p-4 bg-gray-900 overflow-auto"
+				id="memes"
+			>
+				<div className="w-full h-screen relative lg:h-full">
+					<Image
+						src={memes[order[index]].img_url}
+						layout="fill"
+						objectFit="contain"
+						onLoadingComplete={() => setLoading(false)}
+						alt="memes"
+					/>
+				</div>
 				{/* <p>{JSON.stringify(memes[order[index]])}</p> */}
 			</div>
-			<div className="right">
-				<div className="col">
-					<h1>Memefess Stalker</h1>
-				</div>
-				<div className="col">
-					<Button
-						onClick={handleCari}
-						textColor="white"
-						bgColor="#0B1ECC"
-					>
-						{loading || !started ? "loading..." : "Cari! 👀"}
-					</Button>
-					{started && !loading && (
-						<a
-							target="_blank"
-							href={
-								"https://twitter.com/memefess/status/" +
-								memes[order[index]].id
-							}
-							rel="noopener noreferrer"
-						>
-							<Button bgColor="white" textColor="#0B1ECC">
-								Konteks? 🤔
-							</Button>
-						</a>
-					)}
-				</div>
-				<div className="col donate">
-					<Link href="/donasi">
-						<a>
-							<Button textColor="white" bgColor="#CC0B7F">
-								Donasi ❤
-							</Button>
-						</a>
-					</Link>
-				</div>
-			</div>
-			<style jsx>{`
-				.left {
-					width: 70%;
-					background-color: white;
-					display: flex;
-					flex-direction: column;
-					justify-content: center;
-					align-items: center;
-					padding: 2rem 0;
-				}
-				.right {
-					width: 30%;
-					background-color: #fdc965;
-					display: flex;
-					flex-direction: column;
-					justify-content: center;
-					align-items: center;
-					padding: 0 1rem;
-				}
-				.col {
-					height: 100%;
-					width: 100%;
-				}
-
-				.col.donate {
-					display: flex;
-					flex-direction: column;
-					justify-content: flex-end;
-				}
-
-				.img-container {
-					width: 100%;
-					height: 100%;
-					// background-color: pink;
-					position: relative;
-					margin: 0 2rem;
-					display: flex;
-					justify-content: center;
-					align-items: center;
-				}
-
-				iframe {
-					width: 100%;
-					height: 100%;
-					border: none;
-				}
-			`}</style>
+			<SideBar
+				handleCari={handleCari}
+				memes={memes}
+				order={order}
+				index={index}
+				loading={loading}
+				started={started}
+			/>
 		</Layout>
 	);
 }
-
-// Page.getInitialProps = async (ctx) => {
-//   return ({ memes });
-// }
