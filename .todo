@@ -1,0 +1,19 @@
+bikin tampilan mobile
+bikin last backup (judul = meme-until-tgl.json) untuk json
+bikin biar get jsonnya lewat API
+bikin tulisan last update, memes collected, version (https://stackoverflow.com/questions/396429/how-do-you-know-what-version-number-to-use)
+bikin twitter card di website (https://buffer.com/library/twitter-cards-guide/)
+
+benahi update json biar kelihatan kalo udah direply apa belum suatu id
+pelajari cara reply di twitter
+kumpulin quotes jahat (https://id.pinterest.com/anykinehumor/overly-attached-girlfriend-memes/)
+	"hey @..., blablablablab
+	anyway i have already submitted your post to the web
+	you can check that here"
+bikin replyer memefess
+kasih player lofi
+kasih dark mode
+
+bikin PWA
+bikin halaman daftar donatur
+pelajari heroku buat automasi

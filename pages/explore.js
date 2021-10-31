@@ -44,7 +44,7 @@ export default function Explore() {
 	return (
 		<Layout style="display: flex;">
 			<Head>
-				<title>MEMEFESS BROWSE</title>
+				<title>Explore memes</title>
 				<link rel="icon" type="image/jpg" href="/img/memefess.jpg" />
 			</Head>
 			<div className="left">

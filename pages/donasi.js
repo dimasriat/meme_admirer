@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Image from "next/image";
 import Layout from "../components/Layout";
 import Button from "../components/Button";
@@ -6,24 +7,30 @@ import Link from "next/link";
 export default function Donasi() {
 	return (
 		<Layout style="">
+			<Head>
+				<title>Donasi</title>
+				<link rel="icon" type="image/jpg" href="/img/memefess.jpg" />
+			</Head>
 			<div className="container">
 				<h1>Donasi</h1>
 				<div className="img-container">
 					<Image
-						src="/img/memeadmirer.jpg"
+						src="/img/dahyun.jpg"
 						layout="fill"
 						objectFit="contain"
 					/>
 				</div>
-				<p>
-					Biar bisa terus ngurus websitenya dan bisa update terus	❤
-				</p>
-				<a href="https://saweria.co/memeadmirer" target="_blank" rel="noopener noreferrer">
+				<p>Biar bisa terus ngurus websitenya dan bisa update terus ❤</p>
+				<a
+					href="https://saweria.co/memeadmirer"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
 					<Button textColor="white" bgColor="#CC0B7F">
 						Donasi lewat Saweria
 					</Button>
 				</a>
-				<Link href="/">
+				<Link href="/explore">
 					<a>
 						<Button bgColor="white" textColor="#0B1ECC">
 							Balik Lihat Meme
