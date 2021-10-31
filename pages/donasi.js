@@ -43,18 +43,18 @@ export default function Donasi() {
 							</Button>
 						</a>
 					</Link>
-					<Link href="/">
+					{/* <Link href="/">
 						<a>
 							<Button className="mb-4 bg-white text-blue-700">
 								Balik Halaman Awal
 							</Button>
 						</a>
-					</Link>
+					</Link> */}
 				</div>
 				<div className="w-full lg:w-1/2 mx-auto">
 					<p className="font-bold">Daftar Donatur</p>
 					<div className="mt-4">
-						<p className="">Dimas | 2021-10-29 18:35:40 | Rp25.000</p>
+						<p>Dimas | 2021-10-29 18:35:40 | Rp25.000</p>
 						<p className="italic">"Buat beli rokok"</p>
 					</div>
 				</div>
