@@ -82,7 +82,11 @@ function SideBar(props) {
 			</div>
 			<div className="z-40 flex w-full lg:hidden bg-gray-800 py-4">
 				<div className="w-full px-4">
-					<div class={`grid grid-cols-${!loading ? "2" : "1"} gap-4`}>
+					<div
+						className={`grid grid-cols-${
+							!loading ? "2" : "1"
+						} gap-4`}
+					>
 						<Button
 							onClick={handleCari}
 							className="mb-4 bg-blue-700 text-white"
