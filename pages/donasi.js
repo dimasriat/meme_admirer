@@ -3,8 +3,10 @@ import Image from "next/image";
 import Layout from "../components/Layout";
 import Button from "../components/Button";
 import Link from "next/link";
+import axios from "axios";
 
-export default function Donasi() {
+export default function Donasi(props) {
+	const { donatur } = props;
 	return (
 		<Layout className="px-8 lg:px-48 md:px-24 bg-gray-800 text-white">
 			<Head>
@@ -53,12 +55,22 @@ export default function Donasi() {
 				</div>
 				<div className="w-full lg:w-1/2 mx-auto">
 					<p className="font-bold">Daftar Donatur</p>
-					<div className="mt-4">
-						<p>Dimas | 2021-10-29 18:35:40 | Rp25.000</p>
-						<p className="italic">"Buat beli rokok"</p>
-					</div>
+					{donatur.map((item) => (
+						<div className="mt-4" key={item.tanggal}>
+							<p>
+								{item.dari} | {item.tanggal} | {item.nominal}
+							</p>
+							<p className="italic">"{item.pesan}"</p>
+						</div>
+					))}
 				</div>
 			</div>
 		</Layout>
 	);
 }
+
+Donasi.getInitialProps = async (ctx) => {
+	const res = await axios("/api/get-donatur");
+	const donatur = res.data;
+	return { donatur: donatur };
+};
