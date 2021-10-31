@@ -181,7 +181,6 @@ export default function Explore(props) {
 		</Layout>
 	);
 }
-
 Explore.getInitialProps = async (ctx) => {
 	const res = await axios("/api/get-memes");
 	const memes = res.data;
