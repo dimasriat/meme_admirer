@@ -3,10 +3,9 @@ import Image from "next/image";
 import Layout from "../components/Layout";
 import Button from "../components/Button";
 import Link from "next/link";
-import axios from "axios";
+import donatur from "../data/donatur.json";
 
 export default function Donasi(props) {
-	const { donatur } = props;
 	return (
 		<Layout className="px-8 lg:px-48 md:px-24 bg-gray-800 text-white">
 			<Head>
@@ -68,9 +67,3 @@ export default function Donasi(props) {
 		</Layout>
 	);
 }
-
-Donasi.getInitialProps = async (ctx) => {
-	const res = await axios("/api/get-donatur");
-	const donatur = res.data;
-	return { donatur: donatur };
-};

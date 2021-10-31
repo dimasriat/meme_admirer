@@ -5,6 +5,7 @@ import Layout from "../components/Layout";
 import { useState, useEffect } from "react";
 import Button from "../components/Button";
 import axios from "axios";
+import memes from "../data/memes.json";
 
 function getShuffledIndexes(not_me_array) {
 	const array = [...Array(not_me_array.length).keys()];
@@ -55,7 +56,7 @@ function SideBar(props) {
 					>
 						{loading || !started ? "loading..." : "Cari! 👀"}
 					</Button>
-					{started && !loading && (
+					{started && !loading && memes.length && (
 						<a
 							target="_blank"
 							href={
@@ -121,7 +122,6 @@ function SideBar(props) {
 							<span className="text-pink-700">Stalker</span>
 						</a>
 					</Link>
-					s
 				</div>
 			</div>
 		</>
@@ -133,8 +133,6 @@ export default function Explore(props) {
 	const [index, setIndex] = useState(0);
 	const [order, setOrder] = useState();
 	const [loading, setLoading] = useState(false);
-	// const [memes, setMemes] = useState([...data]);
-	const { memes } = props;
 	const handleCari = () => {
 		setLoading(true);
 		setIndex((i) => (i + 1) % memes.length);
@@ -142,6 +140,7 @@ export default function Explore(props) {
 	useEffect(() => {
 		setOrder(getShuffledIndexes(memes));
 		setStarted(true);
+		console.log({ memes, order, index });
 	}, []);
 	useEffect(() => {
 		if (!loading) {
@@ -181,8 +180,3 @@ export default function Explore(props) {
 		</Layout>
 	);
 }
-Explore.getInitialProps = async (ctx) => {
-	const res = await axios("/api/get-memes");
-	const memes = res.data;
-	return { memes: memes };
-};
