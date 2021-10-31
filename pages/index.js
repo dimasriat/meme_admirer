@@ -12,9 +12,6 @@ export default function Home() {
 				<link rel="icon" type="image/jpg" href="/img/memefess.jpg" />
 			</Head>
 			<div className="container grid grid-cols-1 gap-8 px-4 mx-auto">
-				{/* <h1 className="pt-8 text-center font-bold text-4xl">
-					Memefess Stalker
-				</h1> */}
 					<Link href="/">
 						<a className="pt-8 text-center font-bold text-4xl">
 							<span className="text-white">Memefess</span>
@@ -47,27 +44,6 @@ export default function Home() {
 					</Link>
 				</div>
 			</div>
-			{/* <style jsx>{`
-				.container {
-					display: flex;
-					width: 100%;
-					max-width: 640px;
-					margin: 0 auto;
-					flex-direction: column;
-					align-items: center;
-					padding: 0 1rem;
-					// background-color: aqua;
-				}
-
-				.img-container {
-					width: 100%;
-					height: 240px;
-
-					// background-color: pink;
-					position: relative;
-					margin: 1rem 0;
-				}
-			`}</style> */}
 		</Layout>
 	);
 }

@@ -11,10 +11,7 @@ export default function Donasi() {
 				<title>Memefess Stalker</title>
 				<link rel="icon" type="image/jpg" href="/img/memefess.jpg" />
 			</Head>
-			<div className="container grid grid-cols-1 gap-8 px-4 mx-auto">
-				{/* <h1 className="pt-8 text-center font-bold text-4xl">
-					Memefess Stalker
-				</h1> */}
+			<div className="container grid grid-cols-1 gap-8 pb-8 mx-auto">
 				<div className="pt-8 text-center font-bold text-4xl">
 					<span className="text-white">Donasi</span>
 				</div>
@@ -41,48 +38,27 @@ export default function Donasi() {
 					</a>
 					<Link href="/explore">
 						<a>
-							<Button className="mb-4 bg-white text-blue-700">
+							<Button className="mb-4 bg-blue-700 text-white">
 								Balik Lihat Meme
 							</Button>
 						</a>
 					</Link>
-					{/* <Link href="/explore">
+					<Link href="/">
 						<a>
-							<Button className="mb-4 bg-blue-700 text-white">
-								Explore 😎
+							<Button className="mb-4 bg-white text-blue-700">
+								Balik Halaman Awal
 							</Button>
 						</a>
 					</Link>
-					<Link href="/donasi">
-						<a>
-							<Button className="mb-4 bg-pink-700 text-white">
-								Donasi ❤
-							</Button>
-						</a>
-					</Link> */}
+				</div>
+				<div className="w-full lg:w-1/2 mx-auto">
+					<p className="font-bold">Daftar Donatur</p>
+					<div className="mt-4">
+						<p className="">Dimas | 2021-10-29 18:35:40 | Rp25.000</p>
+						<p className="italic">"Buat beli rokok"</p>
+					</div>
 				</div>
 			</div>
-			{/* <style jsx>{`
-				.container {
-					display: flex;
-					width: 100%;
-					max-width: 640px;
-					margin: 0 auto;
-					flex-direction: column;
-					align-items: center;
-					padding: 0 1rem;
-					// background-color: aqua;
-				}
-
-				.img-container {
-					width: 100%;
-					height: 240px;
-
-					// background-color: pink;
-					position: relative;
-					margin: 1rem 0;
-				}
-			`}</style> */}
 		</Layout>
 	);
 }

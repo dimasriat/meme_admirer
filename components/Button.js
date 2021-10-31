@@ -8,12 +8,6 @@ export default function Button(props) {
 			}
 		>
 			{props.children}
-			{/* <style jsx>{`
-				button {
-					background-color: ${props.bgColor};
-					color: ${props.textColor};
-				}
-			`}</style> */}
 		</button>
 	);
 }

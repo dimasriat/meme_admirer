@@ -3,8 +3,8 @@ import Link from "next/link";
 import Image from "next/image";
 import Layout from "../components/Layout";
 import { useState, useEffect } from "react";
-import data from "../data/memes.json";
 import Button from "../components/Button";
+import axios from "axios";
 
 function getShuffledIndexes(not_me_array) {
 	const array = [...Array(not_me_array.length).keys()];
@@ -115,18 +115,26 @@ function SideBar(props) {
 							</Button>
 						</a>
 					</Link>
+					<Link href="/">
+						<a className="text-4xl font-bold w-full flex flex-wrap mt-8">
+							<span className="text-white">Memefess</span>
+							<span className="text-pink-700">Stalker</span>
+						</a>
+					</Link>
+					s
 				</div>
 			</div>
 		</>
 	);
 }
 
-export default function Explore() {
+export default function Explore(props) {
 	const [started, setStarted] = useState(false);
 	const [index, setIndex] = useState(0);
 	const [order, setOrder] = useState();
 	const [loading, setLoading] = useState(false);
-	const [memes, setMemes] = useState([...data]);
+	// const [memes, setMemes] = useState([...data]);
+	const { memes } = props;
 	const handleCari = () => {
 		setLoading(true);
 		setIndex((i) => (i + 1) % memes.length);
@@ -151,15 +159,16 @@ export default function Explore() {
 				id="memes"
 			>
 				<div className="w-full h-screen relative lg:h-full">
-					<Image
-						src={memes[order[index]].img_url}
-						layout="fill"
-						objectFit="contain"
-						onLoadingComplete={() => setLoading(false)}
-						alt="memes"
-					/>
+					{started && (
+						<Image
+							src={memes[order[index]].img_url}
+							layout="fill"
+							objectFit="contain"
+							onLoadingComplete={() => setLoading(false)}
+							alt="memes"
+						/>
+					)}
 				</div>
-				{/* <p>{JSON.stringify(memes[order[index]])}</p> */}
 			</div>
 			<SideBar
 				handleCari={handleCari}
@@ -172,3 +181,9 @@ export default function Explore() {
 		</Layout>
 	);
 }
+
+Explore.getInitialProps = async (ctx) => {
+	const res = await axios("/api/get-memes");
+	const memes = res.data;
+	return { memes: memes };
+};
