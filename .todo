@@ -1,10 +1,10 @@
 bikin tampilan mobile
 bikin last backup (judul = meme-until-tgl.json) untuk json
-bikin biar get jsonnya lewat API
 bikin tulisan last update, memes collected, version (https://stackoverflow.com/questions/396429/how-do-you-know-what-version-number-to-use)
 bikin twitter card di website (https://buffer.com/library/twitter-cards-guide/)
 
 benahi update json biar kelihatan kalo udah direply apa belum suatu id
+kan ada beberapa gambar yang jadi satu id, nah benerin dulu ini biar pas reply ga dobel2
 pelajari cara reply di twitter
 kumpulin quotes jahat (https://id.pinterest.com/anykinehumor/overly-attached-girlfriend-memes/)
 	"hey @..., blablablablab

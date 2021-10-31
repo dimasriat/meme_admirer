@@ -157,7 +157,7 @@ export default function Explore(props) {
 				className="w-full h-full p-4 bg-gray-900 overflow-auto"
 				id="memes"
 			>
-				<div className="w-full h-screen relative lg:h-full">
+				<div className="w-full relative h-full">
 					{started && (
 						<Image
 							src={memes[order[index]].img_url}
