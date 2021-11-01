@@ -14,10 +14,7 @@ export default function Home() {
 				<link rel="icon" type="image/jpg" href="/img/memefess.jpg" />
 				<meta name="twitter:card" content="summary_large_image" />
 				<meta name="twitter:site" content="https://memefess.online" />
-				<meta
-					name="twitter:title"
-					content="MemefessStalker"
-				/>
+				<meta name="twitter:title" content="MemefessStalker" />
 				<meta
 					name="twitter:description"
 					content="kumpulan meme di @memefess secara random"
@@ -26,6 +23,21 @@ export default function Home() {
 					name="twitter:image"
 					content="https://memefess.online/img/memefess.jpg"
 				/>
+				<link rel="manifest" href="/manifest.json" />
+				<link
+					href="/icons/favicon-16x16.png"
+					rel="icon"
+					type="image/png"
+					sizes="16x16"
+				/>
+				<link
+					href="/icons/favicon-32x32.png"
+					rel="icon"
+					type="image/png"
+					sizes="32x32"
+				/>
+				<link rel="apple-touch-icon" href="/apple-icon.png"></link>
+				<meta name="theme-color" content="#1f2937" />
 			</Head>
 			<div className="container grid grid-cols-1 gap-8 px-4 mx-auto">
 				<Link href="/">
