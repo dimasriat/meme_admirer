@@ -1,4 +1,3 @@
-import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 import Layout from "../components/Layout";
@@ -149,25 +148,10 @@ export default function Explore(props) {
 		}
 	}, [loading]);
 	return (
-		<Layout className="flex flex-col lg:flex-row h-screen">
-			<Head>
-				<title>Explore memes</title>
-				<link rel="icon" type="image/jpg" href="/img/memefess.jpg" />
-				<meta name="twitter:card" content="summary_large_image" />
-				<meta name="twitter:site" content="https://memefess.online" />
-				<meta
-					name="twitter:title"
-					content="MemefessStalker"
-				/>
-				<meta
-					name="twitter:description"
-					content="kumpulan meme di @memefess secara random"
-				/>
-				<meta
-					name="twitter:image"
-					content="https://memefess.online/img/memefess.jpg"
-				/>
-			</Head>
+		<Layout
+			title="Explore memes"
+			className="flex flex-col lg:flex-row h-screen"
+		>
 			<div
 				className="w-full h-full p-4 bg-gray-900 overflow-auto"
 				id="memes"

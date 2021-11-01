@@ -7,25 +7,8 @@ import donatur from "../data/donatur.json";
 
 export default function Donasi(props) {
 	return (
-		<Layout className="px-8 lg:px-48 md:px-24 bg-gray-800 text-white">
-			<Head>
-				<title>Memefess Stalker</title>
-				<link rel="icon" type="image/jpg" href="/img/memefess.jpg" />
-				<meta name="twitter:card" content="summary_large_image" />
-				<meta name="twitter:site" content="https://memefess.online" />
-				<meta
-					name="twitter:title"
-					content="MemefessStalker"
-				/>
-				<meta
-					name="twitter:description"
-					content="kumpulan meme di @memefess secara random"
-				/>
-				<meta
-					name="twitter:image"
-					content="https://memefess.online/img/memefess.jpg"
-				/>
-			</Head>
+		<Layout title="Donasi" className="px-8 lg:px-48 md:px-24 bg-gray-800 text-white">
+			
 			<div className="container grid grid-cols-1 gap-8 pb-8 mx-auto">
 				<div className="pt-8 text-center font-bold text-4xl">
 					<span className="text-white">Donasi</span>
