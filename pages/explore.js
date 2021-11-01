@@ -9,6 +9,7 @@ import memes from "../data/memes.json";
 
 function getShuffledIndexes(not_me_array) {
 	const array = [...Array(not_me_array.length).keys()];
+	// return array;
 	let currentIndex = array.length,
 		randomIndex;
 
@@ -152,6 +153,20 @@ export default function Explore(props) {
 			<Head>
 				<title>Explore memes</title>
 				<link rel="icon" type="image/jpg" href="/img/memefess.jpg" />
+				<meta name="twitter:card" content="summary_large_image" />
+				<meta name="twitter:site" content="https://memefess.online" />
+				<meta
+					name="twitter:title"
+					content="MemefessStalker"
+				/>
+				<meta
+					name="twitter:description"
+					content="kumpulan meme di @memefess secara random"
+				/>
+				<meta
+					name="twitter:image"
+					content="https://memefess.online/img/memefess.jpg"
+				/>
 			</Head>
 			<div
 				className="w-full h-full p-4 bg-gray-900 overflow-auto"
