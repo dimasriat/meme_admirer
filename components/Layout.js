@@ -11,7 +11,7 @@ export default function Layout(props) {
 				<title>{props.title}</title>
 				<link rel="icon" type="image/jpg" href="/img/memefess.jpg" />
 				<meta name="twitter:card" content="summary_large_image" />
-				<meta name="twitter:site" content="https://memefess.online" />
+				<meta name="twitter:site" content="@memeadmirer" />
 				<meta name="twitter:title" content="MemefessStalker" />
 				<meta
 					name="twitter:description"
@@ -23,13 +23,13 @@ export default function Layout(props) {
 				/>
 				<link rel="manifest" href="/manifest.json" />
 				<link
-					href="/icons/favicon-16x16.png"
+					href="/img/favicon-16x16.png"
 					rel="icon"
 					type="image/png"
 					sizes="16x16"
 				/>
 				<link
-					href="/icons/favicon-32x32.png"
+					href="/img/favicon-32x32.png"
 					rel="icon"
 					type="image/png"
 					sizes="32x32"
